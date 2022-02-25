@@ -1,10 +1,15 @@
 # Frontend React Project
 
-This is your final project for the frontend module
+[Live solution](https://limo-frontend-project.netlify.app/)
+
+This project is a template from a private repo solution to the following requirements, I used React, Redux-toolkit with thunk, MUI, Axios
 
 ## Instructions
+This is your final project for the frontend module
 
 ### General
+
+This project is template from a private repo solution to the following requirements;
 
 Fork this repo, then clone the **fork** to your machine and start working on it. You can open a pull request as soon as possible (no need to wait until finished)
 For styling, you can use whatever css solution you want: css, scss, Material UI, etc.
@@ -72,12 +77,7 @@ Take your time to implement the following features:
 - Sort the table based on name, region, etc.
 - Maker sure the theme and favorite list is saved in local storage to persist across refreshes of the page (you can use thunk or saga to implement side effects that get state from the store and save it to local storage)
 
-## References
+## Live solution
 
-[Demo](https://flagify.netlify.app/)
+[Live demo](https://limo-frontend-project.netlify.app/)
 
-Homepage:
-![homepage](media/home.png)
-
-Country page:
-![country page](media/country.png)
