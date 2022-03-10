@@ -1,83 +1,87 @@
-# Frontend React Project
+# Countries Project
 
-[Live solution](https://limo-frontend-project.netlify.app/)
+This project is a template from a private repo solution to the following [requirements](./requirements.md)
 
-This project is a template from a private repo solution to the following requirements, I used React, Redux-toolkit with thunk, MUI, Axios
+## Description
 
-## Instructions
-This is your final project for the frontend module
+Fullstack platform built with Reactjs & Reduxtoolkit. This app includes profiles, authentication, places, reviews, and many more features. Users can view places on the map, log in with google, and login user can review, deleted, and update their own reviews.
 
-### General
 
-This project is template from a private repo solution to the following requirements;
+## Features
 
-Fork this repo, then clone the **fork** to your machine and start working on it. You can open a pull request as soon as possible (no need to wait until finished)
-For styling, you can use whatever css solution you want: css, scss, Material UI, etc.
-You need to install the css library yourself. Make sure to use node-sass version 4.14.1 if you want to use scss (using other version may break the app, so switch to the above version in that case)
+- Display all the countries
+- Sort Countries by name, region, the capital city, population, visited, favorite
+- Toggle and persist countries as visited or favorite
+- Toggle dark mode and persist
+- The country details page
+- Search Country By name or capital city
+- Favorite and visited countries pages
 
-### Step 1
+<br>
 
-Write the first custom hook, that:
+<p align="center">
+<img src="./demos/Countries-App.png" width="100%" />
+</p>
 
-- Fetch all the countries and return the data
-- Example usage of the hook is like this:
+## Live demo
+
+A [live demo](https://limo-frontend-project.netlify.app) of the app is hosted on Netlify.
+
+## Technology stack
+
+> ### FrontEnd
+>
+> - React
+> - TypeScript
+> - React Hooks
+> - React router
+> - Redux Toolkit
+> - Mui
+> - Netlify hosting
+>   <br>
+
+## Usage
+
+Clone this repository to the desired location
+
+```Shell
+git clone https://github.com/v-limo/frontend_project.git
+```
+
+### Install Dependencies
 
 ```
-// countries variable will be an array of 250 countries
-const [error, countries] = useCountries()
-```
-
-Write the second custom hook, that:
-
-- Given a country name as argument (international or native), returns the data about that country from [countries APIs](https://restcountries.com/).
-- Example usage of the hook is like this:
+npm install
 
 ```
-// country variable is an object, with details about Suomi (Finland)
-const [error, country] = useCountry('Suomi')
+
+### Run
+
+```
+# Run frontend (:3000)
+npm run start
 ```
 
-### Step 2
+## Build & Deploy
 
-- Use the first custom hook you created to fetch all the countries data
-- Render this data in a table, you can use html table tag, or component library like Material UI
-- Make sure to split the table into smaller components: `TableHead.js`, `TableBody.js`, `TableRow.js`
+```
+# Create  prod build
+cd frontend
+npm run build
+```
 
-### Step 3
+### Contributing
 
-- Integrate react router into your project and create 2 pages: `home`, and `country`
-- Homepage will contain the countries table that we created above
-- Country page will render the data about one specific country only
-- When a user click on the name of the country in the table, they will be routed to the `country` page
+Contributions are highly appreciated. In general, I follow the "fork-and-pull" Git workflow.
 
-### Step 4
+1. **Fork** this repo
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. **Submit** a Pull request so that I can review your changes
 
-- Set up all the redux boilerblate for the project
-- Everything related to redux stays in one folder: reducers, actions, store
-- Think about what reducer you're going to make and write them accordingly
-- Move the state that contains all countries to redux store
-- Use `combineReducers` and have a default state for the `createStore`
+**NOTE:** Be sure to merge the latest from "upstream" before making a pull request!
 
-### Step 5
+### License
 
-- Integrate redux thunk, and fetch data from the thunk instead of inside the custom hooks
-
-### Step 6
-
-Convert the app to typescript
-
-### Step 7
-
-Take your time to implement the following features:
-
-- Implement a search bar to search for a country
-- Convert your hook to use either thunk or saga to fetch the data
-- Switch theme of the app with Context API
-- Add/remove the countries to/from favorite list using Redux, Redux-saga, Redux-thunk
-- Sort the table based on name, region, etc.
-- Maker sure the theme and favorite list is saved in local storage to persist across refreshes of the page (you can use thunk or saga to implement side effects that get state from the store and save it to local storage)
-
-## Live solution
-
-[Live demo](https://limo-frontend-project.netlify.app/)
-
+MIT license
