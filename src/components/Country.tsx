@@ -1,16 +1,17 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import VisibilityOffTwoToneIcon from '@mui/icons-material/VisibilityOffTwoTone'
 import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
 import { Box, IconButton } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
+import { RootState } from '../app/store'
 import {
   taggleFevoutite,
   taggleVisit,
 } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
-import { RootState } from '../app/store'
 
 type CountryProps = {
   country: CountryTypes

@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
-import { Box, TextField } from '@mui/material'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
+import { Box, TextField } from '@mui/material'
+
 import {
-  SearchCountry,
   EmptySearchCountry,
+  SearchCountry,
 } from '../features/countries/countriesSlice'
 
 export const Search = () => {
@@ -26,14 +27,14 @@ export const Search = () => {
       }}
     >
       <TextField
-        name='countries'
+        name="countries"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setSearchText(e.target.value?.trim().toLowerCase())
         }}
-        label='Search the countries ...'
-        placeholder='Search the countries by common, official or capital cities etc'
-        margin='normal'
-        size='medium'
+        label="Search the countries ..."
+        placeholder="Search the countries by common, official or capital cities etc"
+        margin="normal"
+        size="medium"
         value={searchText}
         sx={{ width: '70%', height: '100%' }}
       />

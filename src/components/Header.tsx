@@ -1,14 +1,15 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import HomeIcon from '@mui/icons-material/Home'
+import LightModeIcon from '@mui/icons-material/LightMode'
 import RemoveRedEyeSharpIcon from '@mui/icons-material/RemoveRedEyeSharp'
 import { Badge, Box, Button, Typography } from '@mui/material'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 
-import LightModeIcon from '@mui/icons-material/LightMode'
 import { selectCountries } from '../features/countries/countriesSlice'
 import {
   selectDarkmode,
@@ -31,7 +32,6 @@ export default function Bar() {
         }}
       >
         <Link to="/" color="text.primary" vocab="none">
-
           <Typography
             sx={{
               display: 'flex',

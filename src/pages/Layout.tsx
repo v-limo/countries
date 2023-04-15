@@ -1,7 +1,9 @@
-import { Box } from '@mui/material'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Outlet } from 'react-router'
+
+import { Box } from '@mui/material'
+
 import { Footer } from '../components/Footer'
 import Header from '../components/Header'
 import { selectCountries } from '../features/countries/countriesSlice'

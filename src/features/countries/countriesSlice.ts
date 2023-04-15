@@ -1,9 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import _ from 'lodash'
+
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
 import { RootState } from '../../app/store'
 import { fetchCountries } from './fetchCountries'
 import { CountryTypes } from './types'
-
 
 export interface CountriesState {
   countries: CountryTypes[]
@@ -20,7 +21,7 @@ const initialState = {
   error: false,
   visited: JSON.parse(localStorage.getItem('visited') as string) || [],
   fevourite: JSON.parse(localStorage.getItem('fevourite') as string) || [],
-  searchedCountries: []
+  searchedCountries: [],
 } as CountriesState
 
 const countriesSlice = createSlice({
@@ -34,58 +35,58 @@ const countriesSlice = createSlice({
       } else {
         state.visited.splice(index, 1)
       }
-      localStorage.setItem("visited", JSON.stringify(state.visited))
+      localStorage.setItem('visited', JSON.stringify(state.visited))
     },
 
     taggleFevoutite: (state, { payload }: PayloadAction<string>) => {
       let index = state.fevourite.indexOf(payload)
       if (index === -1) {
         state.fevourite.push(payload)
-      }
-      else {
+      } else {
         state.fevourite.splice(index, 1)
       }
-      localStorage.setItem("fevourite", JSON.stringify(state.fevourite))
+      localStorage.setItem('fevourite', JSON.stringify(state.fevourite))
     },
 
-
-
     sortBy: (state, { payload }: PayloadAction<string>) => {
-      if (payload === "name") {
+      if (payload === 'name') {
         state.countries = _.sortBy(state.countries, (c) => c?.name?.official)
-      }
-      else if (payload === "region") {
+      } else if (payload === 'region') {
         state.countries = _.sortBy(state.countries, (c) => c?.region)
-      }
-      else if (payload === "capital") {
+      } else if (payload === 'capital') {
         state.countries = _.sortBy(state.countries, (c) => c?.capital)
-      }
-      else if (payload === "population") {
+      } else if (payload === 'population') {
         state.countries = _.sortBy(state.countries, (c) => c?.population)
-      }
-      else if (payload === "visited") {
-        let visited = state.countries.filter((c) => (state.visited?.indexOf(c?.name?.official) !== -1))
-        let notVisited = state.countries.filter((c) => (state.visited?.indexOf(c?.name?.official) === -1))
+      } else if (payload === 'visited') {
+        let visited = state.countries.filter(
+          (c) => state.visited?.indexOf(c?.name?.official) !== -1
+        )
+        let notVisited = state.countries.filter(
+          (c) => state.visited?.indexOf(c?.name?.official) === -1
+        )
         state.countries = [...visited, ...notVisited]
-      }
-      else if (payload === "fevourite") {
-        let fevourite = state.countries.filter((c) => (state.fevourite?.indexOf(c?.name?.official) !== -1))
-        let notFevourite = state.countries.filter((c) => (state.fevourite?.indexOf(c?.name?.official) === -1))
+      } else if (payload === 'fevourite') {
+        let fevourite = state.countries.filter(
+          (c) => state.fevourite?.indexOf(c?.name?.official) !== -1
+        )
+        let notFevourite = state.countries.filter(
+          (c) => state.fevourite?.indexOf(c?.name?.official) === -1
+        )
         state.countries = [...fevourite, ...notFevourite]
       }
     },
 
     SearchCountry: (state, { payload }) => {
-      let filteredCountries = state.countries?.filter((c) =>
-        c?.name?.common?.toLowerCase()?.includes(payload) ||
-        c?.name?.official.toLowerCase()?.includes(payload) ||
-        c?.capital?.[0].toLowerCase()?.includes(payload)
+      let filteredCountries = state.countries?.filter(
+        (c) =>
+          c?.name?.common?.toLowerCase()?.includes(payload) ||
+          c?.name?.official.toLowerCase()?.includes(payload) ||
+          c?.capital?.[0].toLowerCase()?.includes(payload)
       )
 
       if (filteredCountries.length === 0) {
-        state.searchedCountries = ["Filtered Empty"]
-      }
-      else {
+        state.searchedCountries = ['Filtered Empty']
+      } else {
         state.searchedCountries = []
         filteredCountries.map((c) => {
           let index = state.searchedCountries?.indexOf(c?.name?.official)
@@ -93,10 +94,8 @@ const countriesSlice = createSlice({
             state.searchedCountries?.push(c?.name?.official)
           }
           return null
-        }
-        )
+        })
       }
-
     },
 
     EmptySearchCountry: (state) => {
@@ -121,7 +120,12 @@ const countriesSlice = createSlice({
   },
 })
 
-export const { taggleVisit, taggleFevoutite, sortBy, SearchCountry, EmptySearchCountry } =
-  countriesSlice.actions
+export const {
+  taggleVisit,
+  taggleFevoutite,
+  sortBy,
+  SearchCountry,
+  EmptySearchCountry,
+} = countriesSlice.actions
 export const selectCountries = (state: RootState) => state.countries
 export default countriesSlice.reducer

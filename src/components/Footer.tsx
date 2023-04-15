@@ -1,5 +1,6 @@
-import { Box, Container } from '@mui/material'
 import GitHubIcon from '@mui/icons-material/GitHub'
+import { Box, Container } from '@mui/material'
+
 export const Footer = () => {
   return (
     <Container
@@ -14,9 +15,9 @@ export const Footer = () => {
       </Box>
       <Box sx={{ marginLeft: 4 }}>
         <a
-          href='https://github.com/v-limo'
-          target='_blank'
-          rel='noopener noreferrer'
+          href="https://github.com/v-limo"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <GitHubIcon />
         </a>

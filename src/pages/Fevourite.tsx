@@ -1,13 +1,14 @@
-import { Box, Button, Container, Typography } from '@mui/material'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import _ from 'lodash'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import _ from 'lodash'
 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { Box, Button, Container, Typography } from '@mui/material'
+
+import { FevouriteCountries } from '../components/FevouriteCountries'
 import { Loading } from '../components/Loading'
 import { TableHead } from '../components/TableHead'
 import { selectCountries } from '../features/countries/countriesSlice'
-import { FevouriteCountries } from '../components/FevouriteCountries'
 
 export const Fevourite = () => {
   let { countries: data, isLoading, fevourite } = useSelector(selectCountries)
@@ -17,8 +18,8 @@ export const Fevourite = () => {
   const navigate = useNavigate()
 
   return (
-    <Container maxWidth='lg' sx={{ minHeight: '100vh' }}>
-      <Typography variant='h6' color='initial'>
+    <Container maxWidth="lg" sx={{ minHeight: '100vh' }}>
+      <Typography variant="h6" color="initial">
         Fevourites countries
       </Typography>
       <TableHead />
@@ -34,14 +35,14 @@ export const Fevourite = () => {
             alignItems: 'center',
           }}
         >
-          <Typography variant='body1' color='primary'>
+          <Typography variant="body1" color="primary">
             It seem theres is no fevourite countries at the moment
           </Typography>
           <Button
-            component='a'
-            startIcon={<ArrowBackIcon fontSize='small' />}
+            component="a"
+            startIcon={<ArrowBackIcon fontSize="small" />}
             sx={{ mt: 3 }}
-            variant='contained'
+            variant="contained"
             onClick={() => navigate('/')}
           >
             Go back to Homepage

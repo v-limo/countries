@@ -1,14 +1,15 @@
-import { Box, IconButton } from '@mui/material'
-import { Link } from 'react-router-dom'
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import { Box, IconButton } from '@mui/material'
 
 import {
   taggleFevoutite,
   taggleVisit,
 } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 import { isFevourite } from '../services/isFevourite'
 
 type CountryProps = {
@@ -45,8 +46,8 @@ export const VisitedCountries = ({ countries }: CountryProps) => {
             <img
               src={country?.flags?.svg || country?.flags?.png}
               alt={country?.name?.common}
-              loading='lazy'
-              width='100%'
+              loading="lazy"
+              width="100%"
             />
           </Box>
 

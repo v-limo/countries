@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
+
+import { configureStore } from '@reduxjs/toolkit'
 
 import countriesReducer from '../features/countries/countriesSlice'
 import darkModeReducer from '../features/darkMode/darkModeSlice'

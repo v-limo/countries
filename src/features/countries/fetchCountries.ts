@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
+
+import API from '../../api'
 import { CountryTypes } from './types'
-import API from './../../api'
+
 export const fetchCountries = createAsyncThunk(
   'countries/fetchCountries',
   async () => {
@@ -8,4 +10,4 @@ export const fetchCountries = createAsyncThunk(
     let data: CountryTypes[] = await response.data
     return data
   }
-)   
+)

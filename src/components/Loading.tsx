@@ -10,7 +10,7 @@ export const Loading = () => {
         minHeight: '80vh',
       }}
     >
-      <CircularProgress color='secondary' />
+      <CircularProgress color="secondary" />
     </Box>
   )
 }

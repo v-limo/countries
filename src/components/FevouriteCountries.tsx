@@ -1,9 +1,10 @@
-import { Box, IconButton } from '@mui/material'
-import VisibilityOffTwoToneIcon from '@mui/icons-material/VisibilityOffTwoTone'
-import { Link } from 'react-router-dom'
-import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
+import VisibilityOffTwoToneIcon from '@mui/icons-material/VisibilityOffTwoTone'
+import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
+import { Box, IconButton } from '@mui/material'
 
 import {
   taggleFevoutite,
@@ -47,8 +48,8 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
             <img
               src={country?.flags?.svg || country?.flags?.png}
               alt={country?.name?.common}
-              loading='lazy'
-              width='100%'
+              loading="lazy"
+              width="100%"
             />
           </Box>
 

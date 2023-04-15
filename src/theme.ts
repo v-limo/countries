@@ -314,5 +314,4 @@ const light = createTheme({
 const darkTheme = { ...theme, ...dark }
 const lightTheme = { ...theme, ...light }
 
-
 export { darkTheme, lightTheme }
