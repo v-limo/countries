@@ -21,7 +21,7 @@ const initialState = {
   error: false,
   visited: JSON.parse(localStorage.getItem('visited') as string) || [],
   fevourite: JSON.parse(localStorage.getItem('fevourite') as string) || [],
-  searchedCountries: [],
+  searchedCountries: []
 } as CountriesState
 
 const countriesSlice = createSlice({
@@ -102,7 +102,7 @@ const countriesSlice = createSlice({
       if (state.searchedCountries.length > 0) {
         state.searchedCountries = []
       }
-    },
+    }
   },
 
   extraReducers: (builder) => {
@@ -117,15 +117,10 @@ const countriesSlice = createSlice({
       state.isLoading = false
       state.error = true
     })
-  },
+  }
 })
 
-export const {
-  taggleVisit,
-  taggleFevoutite,
-  sortBy,
-  SearchCountry,
-  EmptySearchCountry,
-} = countriesSlice.actions
+export const { taggleVisit, taggleFevoutite, sortBy, SearchCountry, EmptySearchCountry } =
+  countriesSlice.actions
 export const selectCountries = (state: RootState) => state.countries
 export default countriesSlice.reducer

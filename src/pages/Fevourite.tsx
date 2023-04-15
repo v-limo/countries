@@ -12,9 +12,7 @@ import { selectCountries } from '../features/countries/countriesSlice'
 
 export const Fevourite = () => {
   let { countries: data, isLoading, fevourite } = useSelector(selectCountries)
-  let countries = data?.filter(
-    (c) => fevourite?.indexOf(c?.name?.official) !== -1
-  )
+  let countries = data?.filter((c) => fevourite?.indexOf(c?.name?.official) !== -1)
   const navigate = useNavigate()
 
   return (
@@ -32,7 +30,7 @@ export const Fevourite = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             minHeight: '90vh',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <Typography variant="body1" color="primary">

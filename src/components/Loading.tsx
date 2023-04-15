@@ -7,7 +7,7 @@ export const Loading = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '80vh',
+        minHeight: '80vh'
       }}
     >
       <CircularProgress color="secondary" />

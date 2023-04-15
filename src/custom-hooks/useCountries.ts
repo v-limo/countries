@@ -10,4 +10,4 @@
 
 // export const useCountries = () => useGetCountriesQuery()
 
-export { }
+export {}

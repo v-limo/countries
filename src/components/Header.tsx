@@ -11,10 +11,7 @@ import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 
 import { selectCountries } from '../features/countries/countriesSlice'
-import {
-  selectDarkmode,
-  toggleDarkMode,
-} from '../features/darkMode/darkModeSlice'
+import { selectDarkmode, toggleDarkMode } from '../features/darkMode/darkModeSlice'
 
 export default function Bar() {
   let { visited, fevourite } = useSelector(selectCountries)
@@ -28,7 +25,7 @@ export default function Bar() {
           display: 'flex',
           justifyContent: 'space-between',
           alignContent: 'center',
-          alignItems: 'center',
+          alignItems: 'center'
         }}
       >
         <Link to="/" color="text.primary" vocab="none">
@@ -42,8 +39,8 @@ export default function Bar() {
               fontSize: '1.5rem',
               // remove the underline
               '&:hover': {
-                textDecoration: 'none',
-              },
+                textDecoration: 'none'
+              }
             }}
             variant="h6"
           >
@@ -59,7 +56,7 @@ export default function Bar() {
             alignItems: 'center',
             padding: '0 10px',
             flexWrap: 'nowrap',
-            gap: '30px',
+            gap: '30px'
           }}
         >
           <Link to="/">

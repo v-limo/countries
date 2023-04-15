@@ -23,7 +23,7 @@ export const TableHead = () => {
         alignItems: 'flex-end',
         borderBottom: 0.5,
         minHeight: '100px',
-        backGround: 'paper',
+        backGround: 'paper'
       }}
     >
       <Button

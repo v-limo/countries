@@ -10,12 +10,9 @@ import { TableHead } from '../components/TableHead'
 import { selectCountries } from '../features/countries/countriesSlice'
 
 export const Home = () => {
-  const { countries, error, isLoading, searchedCountries } =
-    useSelector(selectCountries)
+  const { countries, error, isLoading, searchedCountries } = useSelector(selectCountries)
 
-  let searched = countries?.filter(
-    (c) => searchedCountries?.indexOf(c?.name?.official) !== -1
-  )
+  let searched = countries?.filter((c) => searchedCountries?.indexOf(c?.name?.official) !== -1)
   let notFoundCountries = searchedCountries[0] === 'Filtered Empty' || false
 
   return (
@@ -27,9 +24,7 @@ export const Home = () => {
         {countries && searched?.length === 0 && !notFoundCountries && (
           <Countries countries={countries} />
         )}
-        {countries && searched?.length !== 0 && (
-          <Countries countries={searched} />
-        )}
+        {countries && searched?.length !== 0 && <Countries countries={searched} />}
         {countries && notFoundCountries && (
           <Snackbar open={notFoundCountries} autoHideDuration={6000}>
             <Alert severity="info">'No countries found'!</Alert>

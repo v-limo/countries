@@ -9,4 +9,4 @@
 
 // export const useCountry = (name) => useGetCountryQuery(name)
 
-export { }
+export {}

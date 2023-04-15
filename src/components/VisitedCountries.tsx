@@ -5,10 +5,7 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { Box, IconButton } from '@mui/material'
 
-import {
-  taggleFevoutite,
-  taggleVisit,
-} from '../features/countries/countriesSlice'
+import { taggleFevoutite, taggleVisit } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
 import { isFevourite } from '../services/isFevourite'
 
@@ -39,7 +36,7 @@ export const VisitedCountries = ({ countries }: CountryProps) => {
             alignItems: 'center',
             borderBottom: 0.5,
             minHeight: '100px',
-            cursor: 'pointer',
+            cursor: 'pointer'
           }}
         >
           <Box sx={{ maxHeight: '100%' }}>
@@ -59,7 +56,7 @@ export const VisitedCountries = ({ countries }: CountryProps) => {
               sx={{
                 textDecoration: 'none',
                 cursor: 'pointer',
-                color: 'secondary',
+                color: 'secondary'
               }}
             >
               {country?.name?.common}
@@ -69,8 +66,7 @@ export const VisitedCountries = ({ countries }: CountryProps) => {
           <Box>{country?.region}</Box>
           <Box>{country?.capital || 'N/A'}</Box>
           <Box>
-            {country?.population >= 1000000 &&
-              `~${(country?.population / 1000000).toFixed(2)} M`}
+            {country?.population >= 1000000 && `~${(country?.population / 1000000).toFixed(2)} M`}
             {country?.population > 1000 &&
               country?.population < 1000000 &&
               `~${(country?.population / 1000).toFixed(2)} K`}
@@ -83,13 +79,13 @@ export const VisitedCountries = ({ countries }: CountryProps) => {
             onClick={() => handleFevorite(country?.name?.official)}
             sx={{
               '&:hover': {
-                padding: 1.1,
-              },
+                padding: 1.1
+              }
             }}
           >
             <FavoriteIcon
               sx={{
-                color: isFevourite(country?.name?.official) ? 'red' : 'primary',
+                color: isFevourite(country?.name?.official) ? 'red' : 'primary'
               }}
             />
           </IconButton>

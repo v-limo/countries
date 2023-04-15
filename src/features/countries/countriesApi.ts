@@ -17,5 +17,4 @@
 
 // export const { useGetCountriesQuery, useGetCountryQuery } = countriesApi
 
-
-export { }
+export {}

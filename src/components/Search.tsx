@@ -3,10 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { Box, TextField } from '@mui/material'
 
-import {
-  EmptySearchCountry,
-  SearchCountry,
-} from '../features/countries/countriesSlice'
+import { EmptySearchCountry, SearchCountry } from '../features/countries/countriesSlice'
 
 export const Search = () => {
   const [searchText, setSearchText] = useState('')
@@ -23,7 +20,7 @@ export const Search = () => {
   return (
     <Box
       sx={{
-        mt: 8,
+        mt: 8
       }}
     >
       <TextField

@@ -13,9 +13,7 @@ import { selectCountries } from '../features/countries/countriesSlice'
 
 export const Visited = () => {
   let { countries: data, isLoading, visited } = useSelector(selectCountries)
-  let countries = data?.filter(
-    (c) => visited?.indexOf(c?.name?.official) !== -1
-  )
+  let countries = data?.filter((c) => visited?.indexOf(c?.name?.official) !== -1)
   const navigate = useNavigate()
   return (
     <Container maxWidth="lg" sx={{ minHeight: '90vh' }}>
@@ -32,7 +30,7 @@ export const Visited = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: '90vh',
+            minHeight: '90vh'
           }}
         >
           <Typography variant="body1" color="primary">

@@ -7,10 +7,7 @@ import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
 import { Box, IconButton } from '@mui/material'
 
 import { RootState } from '../app/store'
-import {
-  taggleFevoutite,
-  taggleVisit,
-} from '../features/countries/countriesSlice'
+import { taggleFevoutite, taggleVisit } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
 
 type CountryProps = {
@@ -47,7 +44,7 @@ export const Country = ({ country }: CountryProps) => {
         alignItems: 'center',
         borderBottom: 0.5,
         minHeight: '100px',
-        cursor: 'pointer',
+        cursor: 'pointer'
       }}
     >
       <Box sx={{ maxHeight: '100%', mx: '10px' }}>
@@ -67,7 +64,7 @@ export const Country = ({ country }: CountryProps) => {
           sx={{
             textDecoration: 'none',
             cursor: 'pointer',
-            color: 'secondary',
+            color: 'secondary'
           }}
         >
           {country?.name?.common}
@@ -81,8 +78,7 @@ export const Country = ({ country }: CountryProps) => {
         <Box>N/A</Box>
       )}
       <Box>
-        {country?.population >= 1000000 &&
-          `~${(country?.population / 1000000).toFixed(2)} M`}
+        {country?.population >= 1000000 && `~${(country?.population / 1000000).toFixed(2)} M`}
         {country?.population > 1000 &&
           country?.population < 1000000 &&
           `~${(country?.population / 1000).toFixed(2)} K`}
@@ -99,13 +95,11 @@ export const Country = ({ country }: CountryProps) => {
         onClick={() => handleFevorite(country?.name?.official)}
         sx={{
           '&:hover': {
-            padding: 1.1,
-          },
+            padding: 1.1
+          }
         }}
       >
-        <FavoriteIcon
-          color={isFevourite(country?.name?.official) ? 'error' : 'disabled'}
-        />
+        <FavoriteIcon color={isFevourite(country?.name?.official) ? 'error' : 'disabled'} />
       </IconButton>
     </Box>
   )

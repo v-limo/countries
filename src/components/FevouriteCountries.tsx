@@ -6,10 +6,7 @@ import VisibilityOffTwoToneIcon from '@mui/icons-material/VisibilityOffTwoTone'
 import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
 import { Box, IconButton } from '@mui/material'
 
-import {
-  taggleFevoutite,
-  taggleVisit,
-} from '../features/countries/countriesSlice'
+import { taggleFevoutite, taggleVisit } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
 import { isVisited } from '../services/_isVisited'
 
@@ -41,7 +38,7 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
             alignItems: 'center',
             borderBottom: 0.5,
             minHeight: '100px',
-            cursor: 'pointer',
+            cursor: 'pointer'
           }}
         >
           <Box sx={{ maxHeight: '100%' }}>
@@ -61,7 +58,7 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
               sx={{
                 textDecoration: 'none',
                 cursor: 'pointer',
-                color: 'secondary',
+                color: 'secondary'
               }}
             >
               {country?.name?.common}
@@ -71,8 +68,7 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
           <Box>{country?.region}</Box>
           <Box>{country?.capital || 'N/A'}</Box>
           <Box>
-            {country?.population >= 1000000 &&
-              `~${(country?.population / 1000000).toFixed(2)} M`}
+            {country?.population >= 1000000 && `~${(country?.population / 1000000).toFixed(2)} M`}
             {country?.population > 1000 &&
               country?.population < 1000000 &&
               `~${(country?.population / 1000).toFixed(2)} K`}
@@ -89,8 +85,8 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
             onClick={() => handleFevorite(country?.name?.official)}
             sx={{
               '&:hover': {
-                padding: 1.1,
-              },
+                padding: 1.1
+              }
             }}
           >
             <DeleteOutlineOutlinedIcon sx={{ color: 'red' }} />

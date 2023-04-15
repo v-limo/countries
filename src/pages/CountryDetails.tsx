@@ -13,15 +13,12 @@ import {
   CardMedia,
   Container,
   IconButton,
-  Typography,
+  Typography
 } from '@mui/material'
 import { Box } from '@mui/system'
 
 import { Loading } from '../components/Loading'
-import {
-  selectCountries,
-  taggleFevoutite,
-} from '../features/countries/countriesSlice'
+import { selectCountries, taggleFevoutite } from '../features/countries/countriesSlice'
 import { isFevourite } from '../services/isFevourite'
 
 export const CountryDetails = () => {
@@ -38,7 +35,7 @@ export const CountryDetails = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
       }}
     >
       <h3>{official}</h3>
@@ -46,26 +43,22 @@ export const CountryDetails = () => {
       {_.isEmpty(country) || (
         <Card
           sx={{
-            maxWidth: '700px',
+            maxWidth: '700px'
           }}
         >
           <CardHeader
             action={
               <IconButton
-                onClick={() =>
-                  dispatch(taggleFevoutite(country?.name?.official as string))
-                }
+                onClick={() => dispatch(taggleFevoutite(country?.name?.official as string))}
                 sx={{
                   '&:hover': {
-                    padding: 1.2,
-                  },
+                    padding: 1.2
+                  }
                 }}
               >
                 <FavoriteIcon
                   sx={{
-                    color: isFevourite(country?.name?.official as string)
-                      ? 'red'
-                      : 'primary',
+                    color: isFevourite(country?.name?.official as string) ? 'red' : 'primary'
                   }}
                 />
               </IconButton>
@@ -87,10 +80,7 @@ export const CountryDetails = () => {
               SubRegion : {country?.subregion}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Population:{' '}
-              {country?.population
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              Population: {country?.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             </Typography>
             <Typography variant="body2" color="text.secondary"></Typography>
           </CardContent>
@@ -115,7 +105,7 @@ export const CountryDetails = () => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <Typography variant="body1" color="primary">
