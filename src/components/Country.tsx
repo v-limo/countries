@@ -1,17 +1,16 @@
-import { Box, IconButton } from '@mui/material'
-import VisibilityOffTwoToneIcon from '@mui/icons-material/VisibilityOffTwoTone'
-import { Link } from 'react-router-dom'
-import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
 import FavoriteIcon from '@mui/icons-material/Favorite'
-import { useDispatch } from 'react-redux'
+import VisibilityOffTwoToneIcon from '@mui/icons-material/VisibilityOffTwoTone'
+import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
+import { Box, IconButton } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import {
   taggleFevoutite,
   taggleVisit,
 } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
-import { isVisited } from '../services/_isVisited'
-import { isFevourite } from '../services/isFevourite'
+import { RootState } from '../app/store'
 
 type CountryProps = {
   country: CountryTypes
@@ -19,6 +18,7 @@ type CountryProps = {
 
 export const Country = ({ country }: CountryProps) => {
   const dispatch = useDispatch()
+  const state = useSelector((state: RootState) => state.countries)
 
   const handleFevorite = (name: string) => {
     dispatch(taggleFevoutite(name))
@@ -27,6 +27,15 @@ export const Country = ({ country }: CountryProps) => {
   const handleVisted = (name: string) => {
     dispatch(taggleVisit(name))
   }
+
+  const isFevourite = (name: string) => {
+    return state.fevourite.includes(name)
+  }
+
+  const isVisited = (name: string) => {
+    return state.visited.includes(name)
+  }
+
   return (
     <Box
       sx={{
@@ -40,12 +49,12 @@ export const Country = ({ country }: CountryProps) => {
         cursor: 'pointer',
       }}
     >
-      <Box sx={{ maxHeight: '100%' }}>
+      <Box sx={{ maxHeight: '100%', mx: '10px' }}>
         <img
           src={country?.flags?.svg || country?.flags?.png}
           alt={country?.name?.common}
-          loading='lazy'
-          width='100%'
+          loading="lazy"
+          width="100%"
         />
       </Box>
 
@@ -65,7 +74,11 @@ export const Country = ({ country }: CountryProps) => {
       </Link>
 
       <Box>{country?.region}</Box>
-      <Box>{country?.capital || 'N/A'}</Box>
+      {country?.capital ? (
+        country.capital.map((capital) => <Box key={capital}>{capital}</Box>)
+      ) : (
+        <Box>N/A</Box>
+      )}
       <Box>
         {country?.population >= 1000000 &&
           `~${(country?.population / 1000000).toFixed(2)} M`}
@@ -85,15 +98,12 @@ export const Country = ({ country }: CountryProps) => {
         onClick={() => handleFevorite(country?.name?.official)}
         sx={{
           '&:hover': {
-            // backgroundColor: 'red',
             padding: 1.1,
           },
         }}
       >
         <FavoriteIcon
-          sx={{
-            color: isFevourite(country?.name?.official) ? 'red' : 'primary',
-          }}
+          color={isFevourite(country?.name?.official) ? 'error' : 'disabled'}
         />
       </IconButton>
     </Box>
