@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux'
+import React from 'react'
 
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import { Box, Button } from '@mui/material'
@@ -9,7 +10,8 @@ export const TableHead = () => {
   const dispatch = useDispatch()
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    let { id } = e.target as any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { id } = e.target as any
     dispatch(sortBy(id))
   }
 
@@ -24,14 +26,12 @@ export const TableHead = () => {
         borderBottom: 0.5,
         minHeight: '100px',
         backGround: 'paper'
-      }}
-    >
+      }}>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
         color="primary"
         size="small"
-        variant="text"
-      >
+        variant="text">
         Flag
       </Button>
       <Button
@@ -41,8 +41,7 @@ export const TableHead = () => {
         size="small"
         variant="text"
         id="name"
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
         Name
       </Button>
       <Button
@@ -52,8 +51,7 @@ export const TableHead = () => {
         size="small"
         variant="text"
         onClick={handleClick}
-        id="region"
-      >
+        id="region">
         Region
       </Button>
       <Button
@@ -63,8 +61,7 @@ export const TableHead = () => {
         onClick={handleClick}
         size="small"
         variant="text"
-        id="capital"
-      >
+        id="capital">
         Capital
       </Button>
       <Button
@@ -74,8 +71,7 @@ export const TableHead = () => {
         size="small"
         variant="text"
         id="population"
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
         Population
       </Button>
       <Button
@@ -85,8 +81,7 @@ export const TableHead = () => {
         id="visited"
         size="small"
         variant="text"
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
         Visited
       </Button>
       <Button
@@ -96,8 +91,7 @@ export const TableHead = () => {
         id="fevourite"
         onClick={handleClick}
         size="small"
-        variant="text"
-      >
+        variant="text">
         Fevourite
       </Button>
     </Box>

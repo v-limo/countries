@@ -26,7 +26,7 @@ export const CountryDetails = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { countries, isLoading, error } = useSelector(selectCountries)
-  let country = countries?.find((c) => c?.name?.official === official)
+  const country = countries?.find((c) => c?.name?.official === official)
   return (
     <Container
       sx={{
@@ -36,16 +36,14 @@ export const CountryDetails = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
-      }}
-    >
+      }}>
       <h3>{official}</h3>
       {isLoading && <Loading />}
       {_.isEmpty(country) || (
         <Card
           sx={{
             maxWidth: '700px'
-          }}
-        >
+          }}>
           <CardHeader
             action={
               <IconButton
@@ -54,8 +52,7 @@ export const CountryDetails = () => {
                   '&:hover': {
                     padding: 1.2
                   }
-                }}
-              >
+                }}>
                 <FavoriteIcon
                   sx={{
                     color: isFevourite(country?.name?.official as string) ? 'red' : 'primary'
@@ -90,8 +87,7 @@ export const CountryDetails = () => {
               startIcon={<ArrowBackIcon fontSize="small" />}
               sx={{ mt: 3 }}
               variant="contained"
-              onClick={() => navigate('/')}
-            >
+              onClick={() => navigate('/')}>
               Go back to Homepage
             </Button>
           </CardActions>
@@ -106,8 +102,7 @@ export const CountryDetails = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center'
-          }}
-        >
+          }}>
           <Typography variant="body1" color="primary">
             Something went wrong Go back home
           </Typography>
@@ -116,8 +111,7 @@ export const CountryDetails = () => {
             startIcon={<ArrowBackIcon fontSize="small" />}
             sx={{ mt: 3 }}
             variant="contained"
-            onClick={() => navigate('/')}
-          >
+            onClick={() => navigate('/')}>
             Go back to Homepage
           </Button>
         </Box>

@@ -13,7 +13,7 @@ import { Visited } from './pages/Visited'
 import { darkTheme, lightTheme } from './theme'
 
 const App = () => {
-  let { darkMode: mode } = useSelector(selectDarkmode)
+  const { darkMode: mode } = useSelector(selectDarkmode)
   const theme = mode ? darkTheme : lightTheme
 
   return (

@@ -11,8 +11,8 @@ import { TableHead } from '../components/TableHead'
 import { selectCountries } from '../features/countries/countriesSlice'
 
 export const Fevourite = () => {
-  let { countries: data, isLoading, fevourite } = useSelector(selectCountries)
-  let countries = data?.filter((c) => fevourite?.indexOf(c?.name?.official) !== -1)
+  const { countries: data, isLoading, fevourite } = useSelector(selectCountries)
+  const countries = data?.filter((c) => fevourite?.indexOf(c?.name?.official) !== -1)
   const navigate = useNavigate()
 
   return (
@@ -31,8 +31,7 @@ export const Fevourite = () => {
             justifyContent: 'center',
             minHeight: '90vh',
             alignItems: 'center'
-          }}
-        >
+          }}>
           <Typography variant="body1" color="primary">
             It seem theres is no fevourite countries at the moment
           </Typography>
@@ -41,8 +40,7 @@ export const Fevourite = () => {
             startIcon={<ArrowBackIcon fontSize="small" />}
             sx={{ mt: 3 }}
             variant="contained"
-            onClick={() => navigate('/')}
-          >
+            onClick={() => navigate('/')}>
             Go back to Homepage
           </Button>
         </Box>

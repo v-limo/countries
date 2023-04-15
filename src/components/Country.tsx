@@ -45,8 +45,7 @@ export const Country = ({ country }: CountryProps) => {
         borderBottom: 0.5,
         minHeight: '100px',
         cursor: 'pointer'
-      }}
-    >
+      }}>
       <Box sx={{ maxHeight: '100%', mx: '10px' }}>
         <img
           src={country?.flags?.svg || country?.flags?.png}
@@ -58,15 +57,13 @@ export const Country = ({ country }: CountryProps) => {
 
       <Link
         to={`/countries/${country?.name?.official}`}
-        style={{ textDecoration: 'none', color: 'secondary' }}
-      >
+        style={{ textDecoration: 'none', color: 'secondary' }}>
         <Box
           sx={{
             textDecoration: 'none',
             cursor: 'pointer',
             color: 'secondary'
-          }}
-        >
+          }}>
           {country?.name?.common}
         </Box>
       </Link>
@@ -97,8 +94,7 @@ export const Country = ({ country }: CountryProps) => {
           '&:hover': {
             padding: 1.1
           }
-        }}
-      >
+        }}>
         <FavoriteIcon color={isFevourite(country?.name?.official) ? 'error' : 'disabled'} />
       </IconButton>
     </Box>

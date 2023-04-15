@@ -5,6 +5,6 @@ import { CountryTypes } from './types'
 
 export const fetchCountries = createAsyncThunk('countries/fetchCountries', async () => {
   const response = await API.get('/all')
-  let data: CountryTypes[] = await response.data
+  const data: CountryTypes[] = await response.data
   return data
 })

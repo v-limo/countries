@@ -8,8 +8,7 @@ export const Loading = () => {
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '80vh'
-      }}
-    >
+      }}>
       <CircularProgress color="secondary" />
     </Box>
   )

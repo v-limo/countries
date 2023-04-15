@@ -39,8 +39,7 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
             borderBottom: 0.5,
             minHeight: '100px',
             cursor: 'pointer'
-          }}
-        >
+          }}>
           <Box sx={{ maxHeight: '100%' }}>
             <img
               src={country?.flags?.svg || country?.flags?.png}
@@ -52,15 +51,13 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
 
           <Link
             to={`/countries/${country?.name?.official}`}
-            style={{ textDecoration: 'none', color: 'secondary' }}
-          >
+            style={{ textDecoration: 'none', color: 'secondary' }}>
             <Box
               sx={{
                 textDecoration: 'none',
                 cursor: 'pointer',
                 color: 'secondary'
-              }}
-            >
+              }}>
               {country?.name?.common}
             </Box>
           </Link>
@@ -87,8 +84,7 @@ export const FevouriteCountries = ({ countries }: CountryProps) => {
               '&:hover': {
                 padding: 1.1
               }
-            }}
-          >
+            }}>
             <DeleteOutlineOutlinedIcon sx={{ color: 'red' }} />
           </IconButton>
         </Box>

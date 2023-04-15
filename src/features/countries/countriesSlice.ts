@@ -29,7 +29,7 @@ const countriesSlice = createSlice({
   initialState,
   reducers: {
     taggleVisit: (state, { payload }: PayloadAction<string>) => {
-      let index = state.visited.indexOf(payload)
+      const index = state.visited.indexOf(payload)
       if (index === -1) {
         state.visited.push(payload)
       } else {
@@ -39,7 +39,7 @@ const countriesSlice = createSlice({
     },
 
     taggleFevoutite: (state, { payload }: PayloadAction<string>) => {
-      let index = state.fevourite.indexOf(payload)
+      const index = state.fevourite.indexOf(payload)
       if (index === -1) {
         state.fevourite.push(payload)
       } else {
@@ -58,18 +58,18 @@ const countriesSlice = createSlice({
       } else if (payload === 'population') {
         state.countries = _.sortBy(state.countries, (c) => c?.population)
       } else if (payload === 'visited') {
-        let visited = state.countries.filter(
+        const visited = state.countries.filter(
           (c) => state.visited?.indexOf(c?.name?.official) !== -1
         )
-        let notVisited = state.countries.filter(
+        const notVisited = state.countries.filter(
           (c) => state.visited?.indexOf(c?.name?.official) === -1
         )
         state.countries = [...visited, ...notVisited]
       } else if (payload === 'fevourite') {
-        let fevourite = state.countries.filter(
+        const fevourite = state.countries.filter(
           (c) => state.fevourite?.indexOf(c?.name?.official) !== -1
         )
-        let notFevourite = state.countries.filter(
+        const notFevourite = state.countries.filter(
           (c) => state.fevourite?.indexOf(c?.name?.official) === -1
         )
         state.countries = [...fevourite, ...notFevourite]
@@ -77,7 +77,7 @@ const countriesSlice = createSlice({
     },
 
     SearchCountry: (state, { payload }) => {
-      let filteredCountries = state.countries?.filter(
+      const filteredCountries = state.countries?.filter(
         (c) =>
           c?.name?.common?.toLowerCase()?.includes(payload) ||
           c?.name?.official.toLowerCase()?.includes(payload) ||
@@ -89,7 +89,7 @@ const countriesSlice = createSlice({
       } else {
         state.searchedCountries = []
         filteredCountries.map((c) => {
-          let index = state.searchedCountries?.indexOf(c?.name?.official)
+          const index = state.searchedCountries?.indexOf(c?.name?.official)
           if (index === -1) {
             state.searchedCountries?.push(c?.name?.official)
           }

@@ -2,8 +2,8 @@
 // import { useGetCountryQuery } from '../redux/countriesApi'
 
 // // export const useCountry = async (name) => {
-// //   let response = await api.get(`/name/${name}?fullText=true`)
-// //   let data = await response.data
+// //   const  response = await api.get(`/name/${name}?fullText=true`)
+// //   const  data = await response.data
 // //   return data
 // // }
 

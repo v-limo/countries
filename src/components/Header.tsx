@@ -14,9 +14,9 @@ import { selectCountries } from '../features/countries/countriesSlice'
 import { selectDarkmode, toggleDarkMode } from '../features/darkMode/darkModeSlice'
 
 export default function Bar() {
-  let { visited, fevourite } = useSelector(selectCountries)
-  let { darkMode } = useSelector(selectDarkmode)
-  let dispatch = useDispatch()
+  const { visited, fevourite } = useSelector(selectCountries)
+  const { darkMode } = useSelector(selectDarkmode)
+  const dispatch = useDispatch()
 
   return (
     <AppBar sx={{ backgroundColor: 'background.default' }}>
@@ -26,8 +26,7 @@ export default function Bar() {
           justifyContent: 'space-between',
           alignContent: 'center',
           alignItems: 'center'
-        }}
-      >
+        }}>
         <Link to="/" color="text.primary" vocab="none">
           <Typography
             sx={{
@@ -42,8 +41,7 @@ export default function Bar() {
                 textDecoration: 'none'
               }
             }}
-            variant="h6"
-          >
+            variant="h6">
             My Countries
           </Typography>
         </Link>
@@ -57,8 +55,7 @@ export default function Bar() {
             padding: '0 10px',
             flexWrap: 'nowrap',
             gap: '30px'
-          }}
-        >
+          }}>
           <Link to="/">
             <HomeIcon />
           </Link>

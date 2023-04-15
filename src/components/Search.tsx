@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { Box, TextField } from '@mui/material'
@@ -21,8 +21,7 @@ export const Search = () => {
     <Box
       sx={{
         mt: 8
-      }}
-    >
+      }}>
       <TextField
         name="countries"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
