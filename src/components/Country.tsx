@@ -7,7 +7,7 @@ import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone'
 import { Box, IconButton } from '@mui/material'
 
 import { RootState } from '../app/store'
-import { taggleFevoutite, taggleVisit } from '../features/countries/countriesSlice'
+import { toggleFavourite, toggleVisit } from '../features/countries/countriesSlice'
 import { CountryTypes } from '../features/countries/types'
 
 type CountryProps = {
@@ -18,16 +18,16 @@ export const Country = ({ country }: CountryProps) => {
   const dispatch = useDispatch()
   const state = useSelector((state: RootState) => state.countries)
 
-  const handleFevorite = (name: string) => {
-    dispatch(taggleFevoutite(name))
+  const handleFavorite = (name: string) => {
+    dispatch(toggleFavourite(name))
   }
 
-  const handleVisted = (name: string) => {
-    dispatch(taggleVisit(name))
+  const handleVisited = (name: string) => {
+    dispatch(toggleVisit(name))
   }
 
-  const isFevourite = (name: string) => {
-    return state.fevourite.includes(name)
+  const isFavourite = (name: string) => {
+    return state.favourite.includes(name)
   }
 
   const isVisited = (name: string) => {
@@ -45,7 +45,8 @@ export const Country = ({ country }: CountryProps) => {
         borderBottom: 0.5,
         minHeight: '100px',
         cursor: 'pointer'
-      }}>
+      }}
+    >
       <Box sx={{ maxHeight: '100%', mx: '10px' }}>
         <img
           src={country?.flags?.svg || country?.flags?.png}
@@ -57,13 +58,15 @@ export const Country = ({ country }: CountryProps) => {
 
       <Link
         to={`/countries/${country?.name?.official}`}
-        style={{ textDecoration: 'none', color: 'secondary' }}>
+        style={{ textDecoration: 'none', color: 'secondary' }}
+      >
         <Box
           sx={{
             textDecoration: 'none',
             cursor: 'pointer',
             color: 'secondary'
-          }}>
+          }}
+        >
           {country?.name?.common}
         </Box>
       </Link>
@@ -81,7 +84,7 @@ export const Country = ({ country }: CountryProps) => {
           `~${(country?.population / 1000).toFixed(2)} K`}
         {country?.population <= 1000 && `${country?.population}`}
       </Box>
-      <IconButton onClick={() => handleVisted(country?.name?.official)}>
+      <IconButton onClick={() => handleVisited(country?.name?.official)}>
         {isVisited(country?.name?.official) ? (
           <VisibilityTwoToneIcon />
         ) : (
@@ -89,13 +92,14 @@ export const Country = ({ country }: CountryProps) => {
         )}
       </IconButton>
       <IconButton
-        onClick={() => handleFevorite(country?.name?.official)}
+        onClick={() => handleFavorite(country?.name?.official)}
         sx={{
           '&:hover': {
             padding: 1.1
           }
-        }}>
-        <FavoriteIcon color={isFevourite(country?.name?.official) ? 'error' : 'disabled'} />
+        }}
+      >
+        <FavoriteIcon color={isFavourite(country?.name?.official) ? 'error' : 'disabled'} />
       </IconButton>
     </Box>
   )

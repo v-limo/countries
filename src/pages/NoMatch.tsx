@@ -18,14 +18,16 @@ const NoMatch = () => (
         display: 'flex',
         flexGrow: 1,
         minHeight: '100%'
-      }}>
+      }}
+    >
       <Container maxWidth="md">
         <Box
           sx={{
             alignItems: 'center',
             display: 'flex',
             flexDirection: 'column'
-          }}>
+          }}
+        >
           <Typography align="center" color="textPrimary" variant="body1">
             404: The page you are looking for isn’t here
           </Typography>
@@ -50,7 +52,8 @@ const NoMatch = () => (
               component="a"
               startIcon={<ArrowBackIcon fontSize="small" />}
               sx={{ mt: 3 }}
-              variant="contained">
+              variant="contained"
+            >
               Go back to Homepage
             </Button>
           </Link>

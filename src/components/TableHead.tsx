@@ -26,12 +26,14 @@ export const TableHead = () => {
         borderBottom: 0.5,
         minHeight: '100px',
         backGround: 'paper'
-      }}>
+      }}
+    >
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
         color="primary"
         size="small"
-        variant="text">
+        variant="text"
+      >
         Flag
       </Button>
       <Button
@@ -41,7 +43,8 @@ export const TableHead = () => {
         size="small"
         variant="text"
         id="name"
-        onClick={handleClick}>
+        onClick={handleClick}
+      >
         Name
       </Button>
       <Button
@@ -51,7 +54,8 @@ export const TableHead = () => {
         size="small"
         variant="text"
         onClick={handleClick}
-        id="region">
+        id="region"
+      >
         Region
       </Button>
       <Button
@@ -61,7 +65,8 @@ export const TableHead = () => {
         onClick={handleClick}
         size="small"
         variant="text"
-        id="capital">
+        id="capital"
+      >
         Capital
       </Button>
       <Button
@@ -71,7 +76,8 @@ export const TableHead = () => {
         size="small"
         variant="text"
         id="population"
-        onClick={handleClick}>
+        onClick={handleClick}
+      >
         Population
       </Button>
       <Button
@@ -81,7 +87,8 @@ export const TableHead = () => {
         id="visited"
         size="small"
         variant="text"
-        onClick={handleClick}>
+        onClick={handleClick}
+      >
         Visited
       </Button>
       <Button
@@ -91,7 +98,8 @@ export const TableHead = () => {
         id="fevourite"
         onClick={handleClick}
         size="small"
-        variant="text">
+        variant="text"
+      >
         Fevourite
       </Button>
     </Box>
