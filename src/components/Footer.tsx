@@ -8,7 +8,8 @@ export const Footer = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
-      }}>
+      }}
+    >
       <Box sx={{ marginRight: 4 }}>
         <p>©2019- {new Date().getFullYear()} Vincent Limo </p>
       </Box>

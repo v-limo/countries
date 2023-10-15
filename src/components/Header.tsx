@@ -14,7 +14,8 @@ import { selectCountries } from '../features/countries/countriesSlice'
 import { selectDarkmode, toggleDarkMode } from '../features/darkMode/darkModeSlice'
 
 export default function Bar() {
-  const { visited, fevourite } = useSelector(selectCountries)
+  const { visited, favourite } = useSelector(selectCountries)
+
   const { darkMode } = useSelector(selectDarkmode)
   const dispatch = useDispatch()
 
@@ -26,7 +27,8 @@ export default function Bar() {
           justifyContent: 'space-between',
           alignContent: 'center',
           alignItems: 'center'
-        }}>
+        }}
+      >
         <Link to="/" color="text.primary" vocab="none">
           <Typography
             sx={{
@@ -41,7 +43,8 @@ export default function Bar() {
                 textDecoration: 'none'
               }
             }}
-            variant="h6">
+            variant="h6"
+          >
             My Countries
           </Typography>
         </Link>
@@ -55,7 +58,8 @@ export default function Bar() {
             padding: '0 10px',
             flexWrap: 'nowrap',
             gap: '30px'
-          }}>
+          }}
+        >
           <Link to="/">
             <HomeIcon />
           </Link>
@@ -65,7 +69,7 @@ export default function Bar() {
             </Badge>
           </Link>
           <Link to="/fevorite">
-            <Badge badgeContent={fevourite?.length} color="primary">
+            <Badge badgeContent={favourite?.length} color="primary">
               <FavoriteIcon sx={{ color: 'red', cursor: 'pointer' }} />
             </Badge>
           </Link>

@@ -11,7 +11,7 @@ export interface CountriesState {
   isLoading: boolean
   error: boolean
   visited: string[]
-  fevourite: string[]
+  favourite: string[]
   searchedCountries: string[]
 }
 
@@ -20,7 +20,7 @@ const initialState = {
   isLoading: false,
   error: false,
   visited: JSON.parse(localStorage.getItem('visited') as string) || [],
-  fevourite: JSON.parse(localStorage.getItem('fevourite') as string) || [],
+  favourite: JSON.parse(localStorage.getItem('favourite') as string) || [],
   searchedCountries: []
 } as CountriesState
 
@@ -28,7 +28,7 @@ const countriesSlice = createSlice({
   name: 'countries',
   initialState,
   reducers: {
-    taggleVisit: (state, { payload }: PayloadAction<string>) => {
+    toggleVisit: (state, { payload }: PayloadAction<string>) => {
       const index = state.visited.indexOf(payload)
       if (index === -1) {
         state.visited.push(payload)
@@ -38,14 +38,14 @@ const countriesSlice = createSlice({
       localStorage.setItem('visited', JSON.stringify(state.visited))
     },
 
-    taggleFevoutite: (state, { payload }: PayloadAction<string>) => {
-      const index = state.fevourite.indexOf(payload)
+    toggleFavourite: (state, { payload }: PayloadAction<string>) => {
+      const index = state.favourite.indexOf(payload)
       if (index === -1) {
-        state.fevourite.push(payload)
+        state.favourite.push(payload)
       } else {
-        state.fevourite.splice(index, 1)
+        state.favourite.splice(index, 1)
       }
-      localStorage.setItem('fevourite', JSON.stringify(state.fevourite))
+      localStorage.setItem('favourite', JSON.stringify(state.favourite))
     },
 
     sortBy: (state, { payload }: PayloadAction<string>) => {
@@ -65,14 +65,15 @@ const countriesSlice = createSlice({
           (c) => state.visited?.indexOf(c?.name?.official) === -1
         )
         state.countries = [...visited, ...notVisited]
-      } else if (payload === 'fevourite') {
-        const fevourite = state.countries.filter(
-          (c) => state.fevourite?.indexOf(c?.name?.official) !== -1
+      } else if (payload === 'favourite') {
+        const favourite = state.countries.filter(
+          (c) => state.favourite?.indexOf(c?.name?.official) !== -1
         )
-        const notFevourite = state.countries.filter(
-          (c) => state.fevourite?.indexOf(c?.name?.official) === -1
+        const notFavourite = state.countries.filter(
+          (c) => state.favourite?.indexOf(c?.name?.official) === -1
         )
-        state.countries = [...fevourite, ...notFevourite]
+
+        state.countries = [...favourite, ...notFavourite]
       }
     },
 
@@ -120,7 +121,7 @@ const countriesSlice = createSlice({
   }
 })
 
-export const { taggleVisit, taggleFevoutite, sortBy, SearchCountry, EmptySearchCountry } =
+export const { toggleVisit, toggleFavourite, sortBy, SearchCountry, EmptySearchCountry } =
   countriesSlice.actions
 export const selectCountries = (state: RootState) => state.countries
 export default countriesSlice.reducer

@@ -5,24 +5,25 @@ import { useNavigate } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { Box, Button, Container, Typography } from '@mui/material'
 
-import { FevouriteCountries } from '../components/FevouriteCountries'
+import { FavouriteCountries } from '../components/FavouriteCountries'
 import { Loading } from '../components/Loading'
 import { TableHead } from '../components/TableHead'
 import { selectCountries } from '../features/countries/countriesSlice'
+import React from 'react'
 
-export const Fevourite = () => {
-  const { countries: data, isLoading, fevourite } = useSelector(selectCountries)
-  const countries = data?.filter((c) => fevourite?.indexOf(c?.name?.official) !== -1)
+export const Favourite = () => {
+  const { countries: data, isLoading, favourite } = useSelector(selectCountries)
+  const countries = data?.filter((c) => favourite?.indexOf(c?.name?.official) !== -1)
   const navigate = useNavigate()
 
   return (
     <Container maxWidth="lg" sx={{ minHeight: '100vh' }}>
       <Typography variant="h6" color="initial">
-        Fevourites countries
+        Favourite countries
       </Typography>
       <TableHead />
       {isLoading && <Loading />}
-      {countries && <FevouriteCountries countries={countries} />}
+      {countries && <FavouriteCountries countries={countries} />}
       {_.isEmpty(countries) && (
         <Box
           sx={{
@@ -31,16 +32,18 @@ export const Fevourite = () => {
             justifyContent: 'center',
             minHeight: '90vh',
             alignItems: 'center'
-          }}>
+          }}
+        >
           <Typography variant="body1" color="primary">
-            It seem theres is no fevourite countries at the moment
+            It seem theres is no favourite countries at the moment
           </Typography>
           <Button
             component="a"
             startIcon={<ArrowBackIcon fontSize="small" />}
             sx={{ mt: 3 }}
             variant="contained"
-            onClick={() => navigate('/')}>
+            onClick={() => navigate('/')}
+          >
             Go back to Homepage
           </Button>
         </Box>

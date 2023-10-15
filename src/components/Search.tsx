@@ -21,7 +21,8 @@ export const Search = () => {
     <Box
       sx={{
         mt: 8
-      }}>
+      }}
+    >
       <TextField
         name="countries"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
