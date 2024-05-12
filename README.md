@@ -6,7 +6,6 @@ This project is a template from a private repo solution to the following [requir
 
 Fullstack platform built with Reactjs & Reduxtoolkit. This app includes profiles, authentication, places, reviews, and many more features. Users can view places on the map, log in with google, and login user can review, deleted, and update their own reviews.
 
-
 ## Features
 
 - Display all the countries

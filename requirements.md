@@ -1,5 +1,5 @@
-
 ## Instructions
+
 This is your final project for the frontend module
 
 ### General
@@ -69,6 +69,3 @@ Take your time to implement the following features:
 - Add/remove the countries to/from favorite list using Redux, Redux-saga, Redux-thunk
 - Sort the table based on name, region, etc.
 - Maker sure the theme and favorite list is saved in local storage to persist across refreshes of the page (you can use thunk or saga to implement side effects that get state from the store and save it to local storage)
-
-
-

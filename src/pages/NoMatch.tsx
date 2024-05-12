@@ -1,55 +1,58 @@
-import { Box, Button, Container, Typography } from '@mui/material'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { Link } from 'react-router-dom'
+
+import ArrowBackIcon from '@mui/icons-material/ArrowBack'
+import { Box, Button, Container, Typography } from '@mui/material'
+
 import img from '../img/img_not_found.jpg'
+
 const NoMatch = () => (
   <>
     <Box>
       <title>404 | Country App</title>
     </Box>
     <Box
-      component='main'
+      component="main"
       sx={{
         alignItems: 'center',
         justifyContent: 'center',
         display: 'flex',
         flexGrow: 1,
-        minHeight: '100%',
+        minHeight: '100%'
       }}
     >
-      <Container maxWidth='md'>
+      <Container maxWidth="md">
         <Box
           sx={{
             alignItems: 'center',
             display: 'flex',
-            flexDirection: 'column',
+            flexDirection: 'column'
           }}
         >
-          <Typography align='center' color='textPrimary' variant='body1'>
+          <Typography align="center" color="textPrimary" variant="body1">
             404: The page you are looking for isn’t here
           </Typography>
-          <Typography align='center' color='textPrimary' variant='subtitle2'>
-            You either tried some shady route or you came here by mistake.
-            Whichever it is, try using the navigation
+          <Typography align="center" color="textPrimary" variant="subtitle2">
+            You either tried some shady route or you came here by mistake. Whichever it is, try
+            using the navigation
           </Typography>
           <Box sx={{ textAlign: 'center' }}>
             <img
-              alt='Under development'
+              alt="Under development"
               src={img}
               style={{
                 marginTop: 50,
                 display: 'inline-block',
                 maxWidth: '100%',
-                width: 560,
+                width: 560
               }}
             />
           </Box>
-          <Link to='/'>
+          <Link to="/">
             <Button
-              component='a'
-              startIcon={<ArrowBackIcon fontSize='small' />}
+              component="a"
+              startIcon={<ArrowBackIcon fontSize="small" />}
               sx={{ mt: 3 }}
-              variant='contained'
+              variant="contained"
             >
               Go back to Homepage
             </Button>

@@ -1,13 +1,17 @@
-import { Box, Button } from '@mui/material'
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import { useDispatch } from 'react-redux'
+import React from 'react'
+
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
+import { Box, Button } from '@mui/material'
+
 import { sortBy } from '../features/countries/countriesSlice'
 
 export const TableHead = () => {
   const dispatch = useDispatch()
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    let { id } = e.target as any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const { id } = e.target as any
     dispatch(sortBy(id))
   }
 
@@ -21,80 +25,80 @@ export const TableHead = () => {
         alignItems: 'flex-end',
         borderBottom: 0.5,
         minHeight: '100px',
-        backGround: 'paper',
+        backGround: 'paper'
       }}
     >
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
-        size='small'
-        variant='text'
+        color="primary"
+        size="small"
+        variant="text"
       >
         Flag
       </Button>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
+        color="primary"
         endIcon={<ArrowDropDownIcon />}
-        size='small'
-        variant='text'
-        id='name'
+        size="small"
+        variant="text"
+        id="name"
         onClick={handleClick}
       >
         Name
       </Button>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
+        color="primary"
         endIcon={<ArrowDropDownIcon />}
-        size='small'
-        variant='text'
+        size="small"
+        variant="text"
         onClick={handleClick}
-        id='region'
+        id="region"
       >
         Region
       </Button>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
+        color="primary"
         endIcon={<ArrowDropDownIcon />}
         onClick={handleClick}
-        size='small'
-        variant='text'
-        id='capital'
+        size="small"
+        variant="text"
+        id="capital"
       >
         Capital
       </Button>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
+        color="primary"
         endIcon={<ArrowDropDownIcon />}
-        size='small'
-        variant='text'
-        id='population'
+        size="small"
+        variant="text"
+        id="population"
         onClick={handleClick}
       >
         Population
       </Button>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
+        color="primary"
         endIcon={<ArrowDropDownIcon />}
-        id='visited'
-        size='small'
-        variant='text'
+        id="visited"
+        size="small"
+        variant="text"
         onClick={handleClick}
       >
         Visited
       </Button>
       <Button
         sx={{ display: 'flex', justifyContent: 'flex-start' }}
-        color='primary'
+        color="primary"
         endIcon={<ArrowDropDownIcon />}
-        id='fevourite'
+        id="fevourite"
         onClick={handleClick}
-        size='small'
-        variant='text'
+        size="small"
+        variant="text"
       >
         Fevourite
       </Button>

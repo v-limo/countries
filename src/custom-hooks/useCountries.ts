@@ -3,11 +3,11 @@
 // import { useGetCountriesQuery } from '../redux/countriesApi'
 
 // export const useCountries = async () => {
-//   let response = await api.get('/all')
-//   let data = await response.data
+//   const response = await api.get('/all')
+//   const data = await response.data
 //   return data
 // }
 
 // export const useCountries = () => useGetCountriesQuery()
 
-export { }
+export {}

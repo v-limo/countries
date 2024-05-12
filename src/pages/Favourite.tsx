@@ -3,38 +3,39 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
-import { Button, Container, Typography } from '@mui/material'
-import { Box } from '@mui/system'
+import { Box, Button, Container, Typography } from '@mui/material'
 
+import { FavouriteCountries } from '../components/FavouriteCountries'
 import { Loading } from '../components/Loading'
 import { TableHead } from '../components/TableHead'
-import { VisitedCountries } from '../components/VisitedCountries'
 import { selectCountries } from '../features/countries/countriesSlice'
+import React from 'react'
 
-export const Visited = () => {
-  const { countries: data, isLoading, visited } = useSelector(selectCountries)
-  const countries = data?.filter((c) => visited?.indexOf(c?.name?.official) !== -1)
+export const Favourite = () => {
+  const { countries: data, isLoading, favourite } = useSelector(selectCountries)
+  const countries = data?.filter((c) => favourite?.indexOf(c?.name?.official) !== -1)
   const navigate = useNavigate()
+
   return (
-    <Container maxWidth="lg" sx={{ minHeight: '90vh' }}>
+    <Container maxWidth="lg" sx={{ minHeight: '100vh' }}>
       <Typography variant="h6" color="initial">
-        Visited Countries
+        Favourite countries
       </Typography>
       <TableHead />
       {isLoading && <Loading />}
-      {countries && <VisitedCountries countries={countries} />}
+      {countries && <FavouriteCountries countries={countries} />}
       {_.isEmpty(countries) && (
         <Box
           sx={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '90vh'
+            minHeight: '90vh',
+            alignItems: 'center'
           }}
         >
           <Typography variant="body1" color="primary">
-            It seem theres is no visited countries at the moment
+            It seem theres is no favourite countries at the moment
           </Typography>
           <Button
             component="a"

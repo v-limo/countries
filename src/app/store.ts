@@ -1,5 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useSelector } from 'react-redux'
+
+import { configureStore } from '@reduxjs/toolkit'
 
 import countriesReducer from '../features/countries/countriesSlice'
 import darkModeReducer from '../features/darkMode/darkModeSlice'
@@ -7,8 +8,8 @@ import darkModeReducer from '../features/darkMode/darkModeSlice'
 export const store = configureStore({
   reducer: {
     countries: countriesReducer,
-    darkMode: darkModeReducer,
-  },
+    darkMode: darkModeReducer
+  }
 })
 
 export type RootState = ReturnType<typeof store.getState>

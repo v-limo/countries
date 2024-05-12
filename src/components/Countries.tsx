@@ -1,4 +1,5 @@
 import { Box } from '@mui/system'
+
 import { CountryTypes } from '../features/countries/types'
 import { Country } from './Country'
 
